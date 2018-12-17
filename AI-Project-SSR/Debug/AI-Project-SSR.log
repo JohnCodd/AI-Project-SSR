@@ -1,0 +1,6 @@
+﻿  Game.cpp
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(6): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(32): warning C4244: '-=': conversion from 'const double' to 'sf::Int32', possible loss of data
+  Main.cpp
+  Generating Code...
+  AI-Project-SSR.vcxproj -> C:\Users\Johny-o\Documents\Year 4 College Work\AI Programming\AI-Project-SSR\Debug\AI-Project-SSR.exe
