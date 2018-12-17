@@ -3,7 +3,7 @@
 static double const MS_PER_UPDATE = 10.0;
 
 Game::Game()
-	: m_window(sf::VideoMode(windowWidth, windowHeight, 32), "Lab 6", sf::Style::Default)
+	: m_window(sf::VideoMode(windowWidth, windowHeight, 32), "Space Station Rescue", sf::Style::Default),ai_stay(Vector2f(100, 100), "Stay")
 {
 	m_window.setFramerateLimit(60);
 }
@@ -69,11 +69,18 @@ void Game::processEvents()
 
 void Game::update(double dt)
 {
+	m_player.update(dt);
+	ai_stay.update(dt, m_player.getPosition());
 	mousePosition = sf::Mouse::getPosition(m_window);
 }
 
 void Game::render()
 {
 	m_window.clear(sf::Color(0, 0, 0, 0));
+	ai_stay.render(m_window);
+	m_player.render(m_window);
+	player_camera.setCenter(sf::Vector2f(m_player.getPosition().x, m_player.getPosition().y));
+	player_camera.setSize(sf::Vector2f(windowWidth, windowHeight));
+	m_window.setView(player_camera);
 	m_window.display();
 }
