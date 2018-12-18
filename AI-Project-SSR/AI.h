@@ -6,8 +6,8 @@
 class AI
 {
 public:
-	AI();
-	AI(Vector2f position, std::string state);
+	AI(double mWidth, double mHeight);
+	AI(Vector2f position, std::string state, double mWidth, double mHeight);
 	~AI();
 	void update(float dt, Vector2f target);
 	void render(sf::RenderWindow & window);
@@ -40,5 +40,7 @@ private:
 	float m_speed;
 	float maxSpeed;
 	std::string moveState;
+	double mapWidth;
+	double mapHeight;
 
 };

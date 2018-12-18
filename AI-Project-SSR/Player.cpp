@@ -4,7 +4,7 @@
 
 double const Player::DEG_TO_RAD = 0.0174533;
 
-Player::Player()
+Player::Player(double mWidth, double mHeight)
 {
 	m_position = Vector2f(200, 200);
 	m_rect = sf::RectangleShape(sf::Vector2f(50, 50));
@@ -24,6 +24,8 @@ Player::Player()
 	float x = cos(rotation * DEG_TO_RAD) * m_speed;
 	float y = sin(rotation * DEG_TO_RAD) * m_speed;
 	m_velocity = Vector2f(x, y);
+	mapWidth = mWidth;
+	mapHeight = mHeight;
 }
 
 Player::~Player()
@@ -54,21 +56,21 @@ void Player::update(double dt)
 
 
 	//METHOD
-	if (m_position.x < -50)
+	if (m_position.x < -(m_rect.getSize().x / 2))
 	{
-		m_position.x = 1366 + 50;
+		m_position.x = mapWidth + (m_rect.getSize().x / 2);
 	}
-	else if (m_position.x - 50 > 1366)
+	else if (m_position.x - (m_rect.getSize().x / 2) > mapWidth)
 	{
-		m_position.x = -50;
+		m_position.x = -(m_rect.getSize().x / 2);
 	}
-	else if (m_position.y < -50)
+	else if (m_position.y < -(m_rect.getSize().y / 2))
 	{
-		m_position.y = 768 + 50;
+		m_position.y = mapHeight + (m_rect.getSize().y / 2);
 	}
-	else if (m_position.y - 50 > 768)
+	else if (m_position.y - (m_rect.getSize().y / 2) > mapHeight)
 	{
-		m_position.y = -50;
+		m_position.y = -(m_rect.getSize().y / 2);
 	}
 	//
 

@@ -14,8 +14,11 @@ protected:
 	void update(double dt);
 	void render();
 	void processEvents();
+	void clampCamera();
 	double windowWidth = 1400;
 	double windowHeight = 800;
+	double const mapWidth = 5000;
+	double const mapHeight = 5000;
 	sf::RenderWindow m_window;
 	sf::View player_camera;
 private:

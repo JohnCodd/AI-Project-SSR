@@ -5,7 +5,7 @@
 class Player
 {
 public:
-	Player();
+	Player(double mWidth, double mHeight);
 	~Player();
 	void update(double dt);
 	void render(sf::RenderWindow & window);
@@ -25,4 +25,6 @@ private:
 	float rotation;
 	float m_speed;
 	float maxSpeed;
+	double mapWidth;
+	double mapHeight;
 };

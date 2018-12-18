@@ -4,7 +4,7 @@
 double const AI::DEG_TO_RAD = 0.0174533;
 double const AI::RAD_TO_DEG = 57.2958;
 
-AI::AI()
+AI::AI(double mWidth, double mHeight)
 {
 	m_position = Vector2f(400, 400);
 	m_rect = sf::RectangleShape(sf::Vector2f(100, 100));
@@ -25,9 +25,11 @@ AI::AI()
 	float y = sin(m_rotation * DEG_TO_RAD) * m_speed;
 	m_velocity = Vector2f(x, y);
 	moveState = "DEFAULT";
+	mapWidth = mWidth;
+	mapHeight = mHeight;
 }
 
-AI::AI(Vector2f position, std::string state)
+AI::AI(Vector2f position, std::string state, double mWidth, double mHeight)
 {
 	m_position = position;
 	m_rect = sf::RectangleShape(sf::Vector2f(100, 100));
@@ -49,6 +51,8 @@ AI::AI(Vector2f position, std::string state)
 	float x = cos(m_rotation * DEG_TO_RAD) * m_speed;
 	float y = sin(m_rotation * DEG_TO_RAD) * m_speed;
 	m_velocity = Vector2f(x, y);
+	mapWidth = mWidth;
+	mapHeight = mHeight;
 }
 
 AI::~AI()
@@ -71,21 +75,21 @@ void AI::update(float dt, Vector2f target)
 		arrive(target);
 	}
 	m_position += m_velocity * (1 / 60.0f);
-	if (m_position.x < -50)
+	if (m_position.x < -(m_rect.getSize().x / 2))
 	{
-		m_position.x = 1366 + 50;
+		m_position.x = mapWidth + (m_rect.getSize().x / 2);
 	}
-	else if (m_position.x - 50 > 1366)
+	else if (m_position.x - (m_rect.getSize().x / 2) > mapWidth)
 	{
-		m_position.x = -50;
+		m_position.x = -(m_rect.getSize().x / 2);
 	}
-	else if (m_position.y < -50)
+	else if (m_position.y < -(m_rect.getSize().y / 2))
 	{
-		m_position.y = 768 + 50;
+		m_position.y = mapHeight + (m_rect.getSize().y / 2);
 	}
-	else if (m_position.y - 50 > 768)
+	else if (m_position.y - (m_rect.getSize().y / 2) > mapHeight)
 	{
-		m_position.y = -50;
+		m_position.y = -(m_rect.getSize().y / 2);
 	}
 	m_rect.setPosition(sf::Vector2f(m_position.x, m_position.y));
 	m_rect.setRotation(m_rotation);

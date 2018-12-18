@@ -1,7 +1,12 @@
 ﻿  Game.cpp
 c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\ai.h(23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
 c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(6): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(32): warning C4244: '-=': conversion from 'const double' to 'sf::Int32', possible loss of data
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(10): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(34): warning C4244: '-=': conversion from 'const double' to 'sf::Int32', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(76): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(80): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(88): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(95): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(102): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
   AI-Project-SSR.vcxproj -> C:\Users\Johny-o\Documents\Year 4 College Work\AI Programming\AI-Project-SSR\Debug\AI-Project-SSR.exe
