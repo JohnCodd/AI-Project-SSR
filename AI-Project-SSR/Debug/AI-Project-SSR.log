@@ -1,12 +1,23 @@
 ﻿  Game.cpp
 c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\ai.h(23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
 c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(6): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(10): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(34): warning C4244: '-=': conversion from 'const double' to 'sf::Int32', possible loss of data
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(76): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(80): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(84): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(88): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(95): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(102): warning C4244: 'argument': conversion from 'const double' to 'float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(7): warning C4244: 'argument': conversion from 'const double' to 'int', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(9): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(11): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(35): warning C4244: '-=': conversion from 'double' to 'sf::Int32', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(81): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(89): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(102): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(109): warning C4244: 'argument': conversion from 'const double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
   AI-Project-SSR.vcxproj -> C:\Users\Johny-o\Documents\Year 4 College Work\AI Programming\AI-Project-SSR\Debug\AI-Project-SSR.exe

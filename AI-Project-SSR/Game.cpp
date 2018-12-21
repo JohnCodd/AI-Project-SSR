@@ -4,8 +4,9 @@ static double const MS_PER_UPDATE = 10.0;
 
 Game::Game()
 	: m_window(sf::VideoMode(windowWidth, windowHeight, 32), "Space Station Rescue", sf::Style::Default),ai_stay(Vector2f(100, 100), "Stay", mapWidth, mapHeight)
-	,m_player(mapWidth, mapHeight)
+	,m_player(mapWidth, mapHeight), m_map(mapWidth, mapHeight, tileSize)
 {
+	previousPPosition = m_player.getPosition() / tileSize;
 	m_window.setFramerateLimit(60);
 	player_camera.setSize(sf::Vector2f(windowWidth, windowHeight));
 }
@@ -92,6 +93,12 @@ void Game::clampCamera()
 void Game::update(double dt)
 {
 	m_player.update(dt);
+	Vector2f tileLocation = Vector2f(static_cast<int>(m_player.getPosition().x / tileSize), static_cast<int>(m_player.getPosition().y / tileSize));
+	if (tileLocation != previousPPosition)
+	{
+		m_map.BFS(sf::Vector2f(tileLocation.x, tileLocation.y));
+	}
+	previousPPosition = tileLocation;
 	ai_stay.update(dt, m_player.getPosition());
 	mousePosition = sf::Mouse::getPosition(m_window);
 }
@@ -105,6 +112,7 @@ void Game::render()
 	border.setOutlineThickness(5);
 	border.setFillColor(sf::Color::Transparent);
 	m_window.clear(sf::Color(0, 0, 0, 0));
+	m_map.render(m_window);
 	//m_window.setView(m_window.getDefaultView());
 	ai_stay.render(m_window);
 	m_window.draw(border);
