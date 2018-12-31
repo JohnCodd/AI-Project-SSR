@@ -60,11 +60,17 @@ void Game::processEvents()
 		}
 		if (event.type == sf::Event::KeyPressed)
 		{
+			//Debug testing to see BFS results from far away
 			if (event.key.code == sf::Keyboard::Space)
 			{
-			}
-			if (event.key.code == sf::Keyboard::Num1)
-			{
+				if (updateBFS)
+				{
+					updateBFS = false;
+				}
+				else
+				{
+					updateBFS = true;
+				}
 			}
 		}
 	}
@@ -94,7 +100,7 @@ void Game::update(double dt)
 {
 	m_player.update(dt);
 	Vector2f tileLocation = Vector2f(static_cast<int>(m_player.getPosition().x / tileSize), static_cast<int>(m_player.getPosition().y / tileSize));
-	if (tileLocation != previousPPosition)
+	if (tileLocation != previousPPosition && updateBFS)
 	{
 		m_map.BFS(sf::Vector2f(tileLocation.x, tileLocation.y));
 	}

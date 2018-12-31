@@ -18,12 +18,13 @@ protected:
 	void clampCamera();
 	double windowWidth = 1400;
 	double windowHeight = 800;
-	double const mapWidth = 5000;
-	double const mapHeight = 5000;
-	int const tileSize = 50;
+	double const mapWidth = 3000;
+	double const mapHeight = 3000;
+	int const tileSize = 100;
 	sf::RenderWindow m_window;
 	sf::View player_camera;
 private:
+	bool updateBFS = true;
 	Map m_map;
 	Player m_player;
 	AI ai_stay;

@@ -14,7 +14,7 @@ Map::Map(int sizeX, int sizeY, int tileSize)
 	{
 		for (int j = 0; j < mapWidth; j++)
 		{
-			Tile t = Tile(sf::Vector2f(j * tSize, i * tSize), m_font);
+			Tile t = Tile(sf::Vector2f(j * tSize, i * tSize), m_font, tileSize);
 			sf::Vector2f location = sf::Vector2f(j, i);
 			sf::Vector2f newLocation;
 			tiles[location] = t;
@@ -61,6 +61,15 @@ Map::Map(int sizeX, int sizeY, int tileSize)
 			}
 		}
 	}
+	tiles[sf::Vector2f(10, 10)].setWall(true);
+	tiles[sf::Vector2f(10, 11)].setWall(true);
+	tiles[sf::Vector2f(10, 12)].setWall(true);
+	tiles[sf::Vector2f(10, 13)].setWall(true);
+	tiles[sf::Vector2f(10, 14)].setWall(true);
+	tiles[sf::Vector2f(11, 14)].setWall(true);
+	tiles[sf::Vector2f(12, 14)].setWall(true);
+	tiles[sf::Vector2f(13, 14)].setWall(true);
+	tiles[sf::Vector2f(14, 14)].setWall(true);
 	//startLocation = &tiles[sf::Vector2f(18, 5)];
 	//goalLocation = &tiles[sf::Vector2f(6, 42)];
 	//BFS(*startLocation, *goalLocation);
@@ -170,6 +179,7 @@ void Map::BFS(sf::Vector2f goalPosition)
 	//start.setStart(true);
 	//start.setVisited(true);
 	goal->setGoal(true);
+	goal->setVisited(true);
 	queue.push_back(goal);
 
 	// 'i' will be used to get all adjacent 
@@ -202,6 +212,13 @@ void Map::BFS(sf::Vector2f goalPosition)
 			}
 		}
 		queue.pop_front();
+	}
+	for (auto &t : tiles)
+	{
+		if (t.second.getPrevious() && t.second.getWall() == false)
+		{
+			t.second.setEnd(t.second.getPrevious()->getCenter());
+		}
 	}
 	//if (goalReached == true)
 	//{

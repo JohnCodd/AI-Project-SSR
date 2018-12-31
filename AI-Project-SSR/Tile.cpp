@@ -1,19 +1,19 @@
 #include "Tile.h"
 
-Tile::Tile(sf::Vector2f position, sf::Font& font)
+Tile::Tile(sf::Vector2f position, sf::Font& font, int s)
 {
 	m_rect.setPosition(position);
-	m_rect.setSize(sf::Vector2f(50, 50));
+	m_rect.setSize(sf::Vector2f(s, s));
 	m_cost = 0;
 	float alpha = (m_cost / 100.0f);
 	m_rect.setFillColor(sf::Color(0, 0, 255, 255 - (255 * alpha)));
 	m_rect.setOutlineColor(sf::Color::Black);
 	m_rect.setOutlineThickness(2);
 	m_font = &font;
-
+	size = s;
 	cost = sf::Text(std::to_string(m_cost), *m_font, 12);
 	cost.setPosition(m_rect.getPosition() + sf::Vector2f(5, 5));
-
+	center = sf::Vector2f(position.x + size / 2, position.y + size / 2);
 }
 
 void Tile::render(sf::RenderWindow * window, bool rendercost)
@@ -42,6 +42,14 @@ void Tile::render(sf::RenderWindow * window, bool rendercost)
 	if (rendercost)
 	{
 		window->draw(cost);
+	}
+	sf::Vector2f zero = sf::Vector2f(0, 0);
+	if (center != zero && lineEnd != zero)
+	{
+		sf::VertexArray line(sf::LinesStrip, 2);
+		line[0].position = center;
+		line[1].position = lineEnd;
+		window->draw(line);
 	}
 }
 
@@ -111,7 +119,17 @@ bool Tile::getVisited()
 	return visited;
 }
 
+sf::Vector2f Tile::getCenter()
+{
+	return center;
+}
+
 void Tile::addEdge(Tile& tile)
 {
 	adj.push_back(&tile);
+}
+
+void Tile::setEnd(sf::Vector2f end)
+{
+	lineEnd = end;
 }
