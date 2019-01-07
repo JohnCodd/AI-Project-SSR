@@ -22,7 +22,7 @@ protected:
 	double const mapHeight = 3000;
 	int const tileSize = 100;
 	sf::RenderWindow m_window;
-	sf::View player_camera;
+	sf::View player_camera, minimap;
 private:
 	bool updateBFS = true;
 	Map m_map;

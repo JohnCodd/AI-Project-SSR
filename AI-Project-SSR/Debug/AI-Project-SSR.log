@@ -1,69 +1,38 @@
-﻿  Map.cpp
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+﻿  Game.cpp
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\ai.h(23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(6): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(7): warning C4244: 'argument': conversion from 'const double' to 'int', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(9): warning C4244: 'argument': conversion from 'const int' to 'const float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(11): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(18): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(12): warning C4244: 'argument': conversion from 'const double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(24): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(13): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(29): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(38): warning C4244: '-=': conversion from 'double' to 'sf::Int32', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(86): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(90): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(94): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(98): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(105): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(111): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(118): warning C4244: 'argument': conversion from 'const double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(34): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(138): warning C4244: 'argument': conversion from 'const double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(39): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(49): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(54): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(59): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(142): warning C4101: 'y': unreferenced local variable
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(142): warning C4101: 'x': unreferenced local variable
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(253): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(260): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-c:\users\johny-o\documents\year 4 college work\ai programming\ai-project-ssr\ai-project-ssr\map.cpp(267): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  AI-Project-SSR.vcxproj -> C:\Users\Johny-o\Documents\Year 4 College Work\AI Programming\AI-Project-SSR\Debug\AI-Project-SSR.exe
+  AI-Project-SSR.vcxproj -> C:\Users\c00208049\Documents\AI Programming\AI-Project-SSR\Debug\AI-Project-SSR.exe

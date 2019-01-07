@@ -9,6 +9,9 @@ Game::Game()
 	previousPPosition = m_player.getPosition() / tileSize;
 	m_window.setFramerateLimit(60);
 	player_camera.setSize(sf::Vector2f(windowWidth, windowHeight));
+	minimap.setSize(sf::Vector2f(mapWidth, mapHeight));
+	minimap.setCenter(sf::Vector2f(mapWidth / 2, mapHeight / 2));
+	minimap.setViewport(sf::FloatRect(0.0f, 0.0f, 0.10f, 0.10f));
 }
 
 Game::~Game()
@@ -118,13 +121,25 @@ void Game::render()
 	border.setOutlineThickness(5);
 	border.setFillColor(sf::Color::Transparent);
 	m_window.clear(sf::Color(0, 0, 0, 0));
-	m_map.render(m_window);
-	//m_window.setView(m_window.getDefaultView());
-	ai_stay.render(m_window);
-	m_window.draw(border);
 	player_camera.setCenter(sf::Vector2f(m_player.getPosition().x, m_player.getPosition().y));
 	clampCamera();
 	m_window.setView(player_camera);
+	m_map.render(m_window);
+	//m_window.setView(m_window.getDefaultView());
+	ai_stay.render(m_window);
 	m_player.render(m_window);
+	m_window.draw(border);
+	m_window.setView(minimap);
+	sf::CircleShape object;
+	sf::RectangleShape background;
+	object.setRadius(100);
+	object.setFillColor(sf::Color::Blue);
+	object.setPosition(sf::Vector2f(m_player.getPosition().x, m_player.getPosition().y));
+	background.setSize(sf::Vector2f(mapWidth, mapHeight));
+	background.setFillColor(sf::Color::Green);
+	background.setPosition(sf::Vector2f(0, 0));
+	m_window.draw(background);
+	m_window.draw(object);
+	m_window.setView(player_camera);
 	m_window.display();
 }
