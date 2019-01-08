@@ -33,7 +33,7 @@ Player::~Player()
 
 }
 
-void Player::update(double dt)
+void Player::update(double dt, Map& map)
 {
 
 
@@ -83,8 +83,13 @@ void Player::update(double dt)
 	}
 	m_velocity *= m_speed;
 	m_position += m_velocity * (1 / 60.0f);
-
 	m_rect.setPosition(sf::Vector2f(m_position.x, m_position.y));
+	sf::FloatRect hitbox = sf::FloatRect(m_rect.getPosition().x - (m_rect.getSize().x / 2), m_rect.getPosition().y - (m_rect.getSize().y / 2), m_rect.getSize().x, m_rect.getSize().y);
+	if (map.checkCollision(hitbox))
+	{
+		m_position -= m_velocity * (1 / 60.0f);
+		m_rect.setPosition(sf::Vector2f(m_position.x, m_position.y));
+	}
 	m_rect.setRotation(rotation);
 }
 

@@ -60,8 +60,9 @@ AI::~AI()
 
 }
 
-void AI::update(float dt, Vector2f target)
+void AI::update(float dt, Vector2f target, Tile& targetTile)
 {
+	target = Vector2f(targetTile.getEnd().x, targetTile.getEnd().y);
 	if (moveState == "Seek")
 	{
 		seek(target);

@@ -287,3 +287,24 @@ void Map::onePress()
 		renderCost = true;
 	}
 }
+
+bool Map::checkCollision(sf::FloatRect r)
+{
+	for (auto& t : tiles)
+	{
+		if (t.second.getWall())
+		{
+			sf::FloatRect rect = t.second.getRect();
+			if (rect.intersects(r))
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+Tile* Map::getTile(sf::Vector2f v)
+{
+	return &tiles[v];
+}

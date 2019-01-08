@@ -32,6 +32,8 @@ public:
 	bool getGoal();
 	bool getWall();
 	bool getVisited();
+	sf::FloatRect getRect() {return sf::FloatRect(m_rect.getPosition(), m_rect.getSize());};
+	sf::Vector2f getEnd();
 	sf::Vector2f getCenter();
 	std::list<Tile*>& getAdj() { return adj; };
 	sf::Font* m_font;

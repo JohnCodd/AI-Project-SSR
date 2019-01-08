@@ -14,6 +14,8 @@ public:
 	void leftClick(sf::Event e);
 	void spacebar(sf::Vector2i v);
 	void onePress();
+	bool checkCollision(sf::FloatRect r);
+	Tile* getTile(sf::Vector2f v);
 	struct VectorComparator
 	{
 		bool operator() (sf::Vector2f lhs, sf::Vector2f rhs) const

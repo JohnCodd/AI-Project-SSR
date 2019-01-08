@@ -133,3 +133,8 @@ void Tile::setEnd(sf::Vector2f end)
 {
 	lineEnd = end;
 }
+
+sf::Vector2f Tile::getEnd()
+{
+	return lineEnd;
+}

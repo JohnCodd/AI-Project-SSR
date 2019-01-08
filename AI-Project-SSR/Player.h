@@ -1,13 +1,14 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Vector2f.h"
+#include "Map.h"
 
 class Player
 {
 public:
 	Player(double mWidth, double mHeight);
 	~Player();
-	void update(double dt);
+	void update(double dt, Map& map);
 	void render(sf::RenderWindow & window);
 	void speedUp();
 	void speedDown();

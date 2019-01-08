@@ -3,7 +3,7 @@
 static double const MS_PER_UPDATE = 10.0;
 
 Game::Game()
-	: m_window(sf::VideoMode(windowWidth, windowHeight, 32), "Space Station Rescue", sf::Style::Default),ai_stay(Vector2f(100, 100), "Stay", mapWidth, mapHeight)
+	: m_window(sf::VideoMode(windowWidth, windowHeight, 32), "Space Station Rescue", sf::Style::Default),ai_stay(Vector2f(100, 100), "Seek", mapWidth, mapHeight)
 	,m_player(mapWidth, mapHeight), m_map(mapWidth, mapHeight, tileSize)
 {
 	previousPPosition = m_player.getPosition() / tileSize;
@@ -11,7 +11,7 @@ Game::Game()
 	player_camera.setSize(sf::Vector2f(windowWidth, windowHeight));
 	minimap.setSize(sf::Vector2f(mapWidth, mapHeight));
 	minimap.setCenter(sf::Vector2f(mapWidth / 2, mapHeight / 2));
-	minimap.setViewport(sf::FloatRect(0.0f, 0.0f, 0.10f, 0.10f));
+	minimap.setViewport(sf::FloatRect(0.0f, 0.0f, minimapSize / windowWidth, minimapSize / windowHeight));
 }
 
 Game::~Game()
@@ -101,15 +101,24 @@ void Game::clampCamera()
 
 void Game::update(double dt)
 {
-	m_player.update(dt);
+	m_player.update(dt, m_map);
 	Vector2f tileLocation = Vector2f(static_cast<int>(m_player.getPosition().x / tileSize), static_cast<int>(m_player.getPosition().y / tileSize));
 	if (tileLocation != previousPPosition && updateBFS)
 	{
 		m_map.BFS(sf::Vector2f(tileLocation.x, tileLocation.y));
 	}
 	previousPPosition = tileLocation;
-	ai_stay.update(dt, m_player.getPosition());
+	sf::Vector2f aiLocation = sf::Vector2f(static_cast<int>(ai_stay.getPosition().x / tileSize), static_cast<int>(ai_stay.getPosition().y / tileSize));
+	ai_stay.update(dt, m_player.getPosition(), *m_map.getTile(aiLocation));
 	mousePosition = sf::Mouse::getPosition(m_window);
+	if (m_player.getPosition().x < 200 && m_player.getPosition().y < 200)
+	{
+		minimap.setViewport(sf::FloatRect(1.0f - minimapSize / windowWidth, 0.0f, minimapSize / windowWidth, minimapSize / windowHeight));
+	}
+	else
+	{
+		minimap.setViewport(sf::FloatRect(0.0f, 0.0f, minimapSize / windowWidth, minimapSize / windowHeight));
+	}
 }
 
 void Game::render()
@@ -132,9 +141,10 @@ void Game::render()
 	m_window.setView(minimap);
 	sf::CircleShape object;
 	sf::RectangleShape background;
-	object.setRadius(100);
+	float radius = 100;
+	object.setRadius(radius);
 	object.setFillColor(sf::Color::Blue);
-	object.setPosition(sf::Vector2f(m_player.getPosition().x, m_player.getPosition().y));
+	object.setPosition(sf::Vector2f(m_player.getPosition().x - radius, m_player.getPosition().y - radius));
 	background.setSize(sf::Vector2f(mapWidth, mapHeight));
 	background.setFillColor(sf::Color::Green);
 	background.setPosition(sf::Vector2f(0, 0));
