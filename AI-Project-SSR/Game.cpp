@@ -4,7 +4,7 @@ static double const MS_PER_UPDATE = 10.0;
 
 Game::Game()
 	: m_window(sf::VideoMode(windowWidth, windowHeight, 32), "Space Station Rescue", sf::Style::Default),ai_stay(Vector2f(100, 100), "Seek", mapWidth, mapHeight)
-	,m_player(mapWidth, mapHeight), m_map(mapWidth, mapHeight, tileSize), m_nest(Vector2f(1000, 1000), mapWidth, mapHeight)
+	,m_player(mapWidth, mapHeight), m_map(mapWidth, mapHeight, tileSize), m_nest(Vector2f(2000, 2000), mapWidth, mapHeight)
 {
 	previousPPosition = m_player.getPosition() / tileSize;
 	m_window.setFramerateLimit(60);
@@ -141,17 +141,22 @@ void Game::render()
 	m_player.render(m_window);
 	m_window.draw(border);
 	m_window.setView(minimap);
-	sf::CircleShape object;
+	sf::CircleShape playerIcon, nestIcon;
 	sf::RectangleShape background;
+	//Show player and nest positions on the map
 	float radius = 100;
-	object.setRadius(radius);
-	object.setFillColor(sf::Color::Blue);
-	object.setPosition(sf::Vector2f(m_player.getPosition().x - radius, m_player.getPosition().y - radius));
+	playerIcon.setRadius(radius);
+	playerIcon.setFillColor(sf::Color::Blue);
+	playerIcon.setPosition(sf::Vector2f(m_player.getPosition().x - radius, m_player.getPosition().y - radius));
+	nestIcon.setRadius(radius);
+	nestIcon.setFillColor(sf::Color::Red);
+	nestIcon.setPosition(sf::Vector2f(m_nest.getPosition().x - radius, m_nest.getPosition().y - radius));
 	background.setSize(sf::Vector2f(mapWidth, mapHeight));
 	background.setFillColor(sf::Color::Green);
 	background.setPosition(sf::Vector2f(0, 0));
 	m_window.draw(background);
-	m_window.draw(object);
+	m_window.draw(nestIcon);
+	m_window.draw(playerIcon);
 	m_window.setView(player_camera);
 	m_window.display();
 }
