@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "AI.h"
 #include "Map.h"
+#include "Nest.h"
 
 class Game
 {
@@ -29,6 +30,7 @@ private:
 	Map m_map;
 	Player m_player;
 	AI ai_stay;
+	Nest m_nest;
 	Vector2f previousPPosition;
 	sf::Vector2i mousePosition;
 };

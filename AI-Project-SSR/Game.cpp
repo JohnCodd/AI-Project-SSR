@@ -4,7 +4,7 @@ static double const MS_PER_UPDATE = 10.0;
 
 Game::Game()
 	: m_window(sf::VideoMode(windowWidth, windowHeight, 32), "Space Station Rescue", sf::Style::Default),ai_stay(Vector2f(100, 100), "Seek", mapWidth, mapHeight)
-	,m_player(mapWidth, mapHeight), m_map(mapWidth, mapHeight, tileSize)
+	,m_player(mapWidth, mapHeight), m_map(mapWidth, mapHeight, tileSize), m_nest(Vector2f(1000, 1000), mapWidth, mapHeight)
 {
 	previousPPosition = m_player.getPosition() / tileSize;
 	m_window.setFramerateLimit(60);
@@ -110,6 +110,7 @@ void Game::update(double dt)
 	previousPPosition = tileLocation;
 	sf::Vector2f aiLocation = sf::Vector2f(static_cast<int>(ai_stay.getPosition().x / tileSize), static_cast<int>(ai_stay.getPosition().y / tileSize));
 	ai_stay.update(dt, m_player.getPosition(), *m_map.getTile(aiLocation));
+	m_nest.update(dt, m_player.getPosition(), *m_map.getTile(aiLocation));
 	mousePosition = sf::Mouse::getPosition(m_window);
 	if (m_player.getPosition().x < 200 && m_player.getPosition().y < 200)
 	{
@@ -136,6 +137,7 @@ void Game::render()
 	m_map.render(m_window);
 	//m_window.setView(m_window.getDefaultView());
 	ai_stay.render(m_window);
+	m_nest.render(m_window);
 	m_player.render(m_window);
 	m_window.draw(border);
 	m_window.setView(minimap);
