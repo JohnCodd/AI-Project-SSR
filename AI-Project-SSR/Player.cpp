@@ -33,7 +33,7 @@ Player::~Player()
 
 }
 
-void Player::update(double dt, Map& map)
+void Player::update(double dt, Map& map, std::list<Projectile>& projectiles)
 {
 
 
@@ -52,6 +52,10 @@ void Player::update(double dt, Map& map)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 		rotateRight();
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	{
+		projectiles.push_back(Projectile(m_position, 1, rotation, mapWidth, mapHeight));
 	}
 
 

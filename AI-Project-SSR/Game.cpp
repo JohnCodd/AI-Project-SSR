@@ -4,7 +4,7 @@ static double const MS_PER_UPDATE = 10.0;
 
 Game::Game()
 	: m_window(sf::VideoMode(windowWidth, windowHeight, 32), "Space Station Rescue", sf::Style::Default),ai_stay(Vector2f(100, 100), "Seek", mapWidth, mapHeight)
-	,m_player(mapWidth, mapHeight), m_map(mapWidth, mapHeight, tileSize), m_nest(Vector2f(2000, 2000), mapWidth, mapHeight)
+	, m_player(mapWidth, mapHeight), m_map(mapWidth, mapHeight, tileSize), m_nest(Vector2f(2000, 2000), mapWidth, mapHeight), projectiles()
 {
 	previousPPosition = m_player.getPosition() / tileSize;
 	m_window.setFramerateLimit(60);
@@ -64,7 +64,7 @@ void Game::processEvents()
 		if (event.type == sf::Event::KeyPressed)
 		{
 			//Debug testing to see BFS results from far away
-			if (event.key.code == sf::Keyboard::Space)
+			if (event.key.code == sf::Keyboard::Num0)
 			{
 				if (updateBFS)
 				{
@@ -101,7 +101,11 @@ void Game::clampCamera()
 
 void Game::update(double dt)
 {
-	m_player.update(dt, m_map);
+	m_player.update(dt, m_map, projectiles);
+	for (auto& p : projectiles)
+	{
+		p.update(dt);
+	}
 	Vector2f tileLocation = Vector2f(static_cast<int>(m_player.getPosition().x / tileSize), static_cast<int>(m_player.getPosition().y / tileSize));
 	if (tileLocation != previousPPosition && updateBFS)
 	{
@@ -139,6 +143,10 @@ void Game::render()
 	ai_stay.render(m_window);
 	m_nest.render(m_window);
 	m_player.render(m_window);
+	for (auto& p : projectiles)
+	{
+		p.render(m_window);
+	}
 	m_window.draw(border);
 	m_window.setView(minimap);
 	sf::CircleShape playerIcon, nestIcon;

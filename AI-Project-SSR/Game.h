@@ -1,10 +1,12 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <list>
 #include "Player.h"
 #include "AI.h"
 #include "Map.h"
 #include "Nest.h"
+#include "Projectile.h"
 
 class Game
 {
@@ -33,4 +35,5 @@ private:
 	Nest m_nest;
 	Vector2f previousPPosition;
 	sf::Vector2i mousePosition;
+	std::list<Projectile> projectiles;
 };
