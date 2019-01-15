@@ -55,8 +55,13 @@ void Player::update(double dt, Map& map, std::list<Projectile>& projectiles)
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		projectiles.push_back(Projectile(m_position, 1, rotation, mapWidth, mapHeight));
+		if (shotCooldown > maxCooldown)
+		{
+			projectiles.push_back(std::move(Projectile(m_position, 1, rotation, mapWidth, mapHeight)));
+			shotCooldown = 0;
+		}
 	}
+	shotCooldown++;
 
 
 	//METHOD

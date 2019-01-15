@@ -30,4 +30,6 @@ private:
 	float maxSpeed;
 	double mapWidth;
 	double mapHeight;
+	int shotCooldown;
+	int maxCooldown = 20;
 };

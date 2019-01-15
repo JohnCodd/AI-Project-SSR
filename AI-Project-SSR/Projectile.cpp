@@ -8,10 +8,15 @@ Projectile::Projectile(Vector2f position, float speed, float rotation, float mWi
 	m_position = position;
 
 	m_rotation = rotation;
-	if (!m_texture.loadFromFile("./Resources/Sprites/bullet_sprite.png"))
+	auto texture = sf::Texture();
+	if (!texture.loadFromFile("./Resources/Sprites/bullet_sprite.png"))
 	{
 		std::string s("Error loading texture");
 		throw std::exception(s.c_str());
+	}
+	else
+	{
+		m_texture = std::make_shared<sf::Texture>(std::move(texture));
 	}
 	mapWidth = mWidth;
 	mapHeight = mHeight;
@@ -21,8 +26,13 @@ Projectile::Projectile(Vector2f position, float speed, float rotation, float mWi
 	collider.setRadius(radius);
 	collider.setPosition(sf::Vector2f(position.x, position.y));
 	collider.setRotation(rotation);
-	collider.setTexture(&m_texture);
 	collider.setOrigin(sf::Vector2f(radius, radius));
+	collider.setTexture(m_texture.get(), true);
+	rect.setTexture(m_texture.get());
+	rect.setPosition(sf::Vector2f(position.x, position.y));
+	rect.setRotation(rotation);
+	rect.setSize(sf::Vector2f(radius * 2, radius * 2));
+	rect.setOrigin(sf::Vector2f(radius, radius));
 }
 
 
@@ -35,6 +45,9 @@ void Projectile::update(float dt)
 {
 	m_position += velocity * dt;
 	collider.setPosition(sf::Vector2f(m_position.x, m_position.y));
+	collider.setRotation(m_rotation);
+	rect.setPosition(sf::Vector2f(m_position.x, m_position.y));
+	rect.setRotation(m_rotation);
 	if (m_position.x < -(collider.getRadius()))
 	{
 		m_position.x = mapWidth + (collider.getRadius());
@@ -56,4 +69,5 @@ void Projectile::update(float dt)
 void Projectile::render(sf::RenderWindow& window)
 {
 	window.draw(collider);
+	//window.draw(rect);
 }
