@@ -14,7 +14,7 @@ protected:
 	double static const RAD_TO_DEG;
 	Vector2f m_position, velocity;
 	float m_rotation, mapWidth, mapHeight;
-	float radius = 50;
+	float radius = 5;
 	sf::CircleShape collider;
 	sf::RectangleShape rect;
 	std::shared_ptr<sf::Texture> m_texture;
