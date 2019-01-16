@@ -15,6 +15,8 @@ protected:
 	Vector2f m_position, velocity;
 	float m_rotation, mapWidth, mapHeight;
 	float radius = 5;
+	float m_speed;
+	virtual float getOrientation(Vector2f vel) { return vel.magnitude() > 0 ? atan2(vel.y, vel.x) * RAD_TO_DEG : m_rotation; }
 	sf::CircleShape collider;
 	sf::RectangleShape rect;
 	std::shared_ptr<sf::Texture> m_texture;

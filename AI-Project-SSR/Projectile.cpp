@@ -22,6 +22,7 @@ Projectile::Projectile(Vector2f position, float speed, float rotation, float mWi
 	mapHeight = mHeight;
 	float x = cos(m_rotation * DEG_TO_RAD) * speed;
 	float y = sin(m_rotation * DEG_TO_RAD) * speed;
+	m_speed = speed;
 	velocity = Vector2f(x, y);
 	collider.setRadius(radius);
 	collider.setPosition(sf::Vector2f(position.x, position.y));

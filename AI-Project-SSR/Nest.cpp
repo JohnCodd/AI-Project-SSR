@@ -30,11 +30,25 @@ Nest::Nest(Vector2f position, double mapX, double mapY) : AI(position, "Stay", m
 
 void Nest::update(float dt, Vector2f target, Tile & targetTile)
 {
-	
+	if (target.distance(m_position) < firingRadius && missiles.size() < misileLimit && shotCooldown > maxCooldown)
+	{
+		shotCooldown = 0;
+		Missile m = std::move(Missile(m_position, 0.1f, m_rotation, mapWidth, mapHeight));
+		missiles.push_back(m);
+	}
+	shotCooldown++;
+	for (auto& m : missiles)
+	{
+		m.update(dt, target);
+	}
 }
 
 void Nest::render(sf::RenderWindow& window)
 {
 	window.draw(m_rect);
 	window.draw(scanArea);
+	for (auto& m : missiles)
+	{
+		m.render(window);
+	}
 }

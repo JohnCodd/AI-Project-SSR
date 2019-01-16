@@ -126,6 +126,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Missile.cpp" />
     <ClCompile Include="Nest.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Projectile.cpp" />
@@ -136,6 +137,7 @@
     <ClInclude Include="AI.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Missile.h" />
     <ClInclude Include="Nest.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Projectile.h" />

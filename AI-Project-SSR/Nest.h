@@ -1,5 +1,7 @@
 #pragma once
 #include "AI.h"
+#include "Missile.h"
+#include <list>
 
 class Nest : public AI
 {
@@ -12,4 +14,7 @@ private:
 	int misileLimit = 5;
 	float firingRadius = 500;
 	sf::CircleShape scanArea;
+	std::list<Missile> missiles;
+	int shotCooldown;
+	int maxCooldown = 100;
 };
