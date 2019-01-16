@@ -117,7 +117,7 @@ void Game::update(double dt)
 	previousPPosition = tileLocation;
 	sf::Vector2f aiLocation = sf::Vector2f(static_cast<int>(ai_stay.getPosition().x / tileSize), static_cast<int>(ai_stay.getPosition().y / tileSize));
 	ai_stay.update(dt, m_player.getPosition(), *m_map.getTile(aiLocation));
-	m_nest.update(dt, m_player.getPosition(), *m_map.getTile(aiLocation));
+	m_nest.update(dt, m_player.getPosition(), *m_map.getTile(sf::Vector2f(20, 20)));
 	mousePosition = sf::Mouse::getPosition(m_window);
 	if (m_player.getPosition().x < 200 && m_player.getPosition().y < 200)
 	{

@@ -21,6 +21,6 @@ private:
 	float firingRadius = 500;
 	sf::CircleShape scanArea;
 	std::list<Missile> missiles;
-	int shotCooldown;
+	int shotCooldown = 0;
 	int maxCooldown = 100;
 };

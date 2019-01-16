@@ -30,6 +30,9 @@ Nest::Nest(Vector2f position, double mapX, double mapY) : AI(position, "Stay", m
 
 void Nest::update(float dt, Vector2f target, Tile & targetTile)
 {
+	m_position = Vector2f(targetTile.getCenter().x, targetTile.getCenter().y);
+	m_rect.setPosition(targetTile.getCenter());
+	scanArea.setPosition(targetTile.getCenter());
 	if (target.distance(m_position) < firingRadius && missiles.size() < misileLimit && shotCooldown > maxCooldown)
 	{
 		shotCooldown = 0;
