@@ -105,7 +105,10 @@ void Game::update(double dt)
 	for (auto& p : projectiles)
 	{
 		p.update(dt);
+		
 	}
+	projectiles.erase(std::remove_if(projectiles.begin(), projectiles.end(), removeUnactiveProjectiles()),
+		projectiles.end());
 	Vector2f tileLocation = Vector2f(static_cast<int>(m_player.getPosition().x / tileSize), static_cast<int>(m_player.getPosition().y / tileSize));
 	if (tileLocation != previousPPosition && updateBFS)
 	{

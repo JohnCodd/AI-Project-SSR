@@ -17,6 +17,7 @@ Missile::Missile(Vector2f position, float speed, float rotation, float mWidth, f
 	}
 	collider.setTexture(m_texture.get(), true);
 	collider.setRadius(radius);
+	timeLeft = lifeTime;
 }
 
 
@@ -26,11 +27,19 @@ Missile::~Missile()
 
 void Missile::update(float dt, Vector2f target)
 {
-	auto desired = Vector2f(target - m_position).normalise() * m_speed;
+	if (active)
+	{
+		auto desired = Vector2f(target - m_position).normalise() * m_speed;
 
-	auto steering = desired - velocity;
+		auto steering = desired - velocity;
 
-	velocity += steering;
-	m_rotation = getOrientation(velocity);
-	Projectile::update(dt);
+		velocity += steering;
+		m_rotation = getOrientation(velocity);
+		timeLeft--;
+		if (timeLeft <= 0)
+		{
+			active = false;
+		}
+		Projectile::update(dt);
+	}
 }

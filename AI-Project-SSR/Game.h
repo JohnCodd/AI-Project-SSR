@@ -14,6 +14,12 @@ public:
 	Game();
 	~Game();
 	void run();
+	struct removeUnactiveProjectiles
+	{
+		bool operator()(Projectile& p) {
+			return !p.getActive();
+		}
+	};
 protected:
 	void update(double dt);
 	void render();
@@ -36,5 +42,4 @@ private:
 	Vector2f previousPPosition;
 	sf::Vector2i mousePosition;
 	std::list<Projectile> projectiles;
-
 };

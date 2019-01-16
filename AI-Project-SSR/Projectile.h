@@ -8,6 +8,9 @@ public:
 	Projectile(Vector2f position, float speed, float rotation, float mWidth, float mHeight);
 	~Projectile();
 	void update(float dt);
+	bool getActive() { return active; }
+	//bool operator == (const Projectile& s) const { return getActive == s.getActive; }
+	//bool operator != (const Projectile& s) const { return !operator==(s); }
 	virtual void render(sf::RenderWindow& window);
 protected:
 	double static const DEG_TO_RAD;
@@ -20,5 +23,6 @@ protected:
 	sf::CircleShape collider;
 	sf::RectangleShape rect;
 	std::shared_ptr<sf::Texture> m_texture;
+	bool active = true;
 };
 

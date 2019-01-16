@@ -32,8 +32,8 @@ AI::AI(double mWidth, double mHeight)
 AI::AI(Vector2f position, std::string state, double mWidth, double mHeight)
 {
 	m_position = position;
-	m_rect = sf::RectangleShape(sf::Vector2f(100, 100));
-	m_rect.setOrigin(50, 50);
+	m_rect = sf::RectangleShape(sf::Vector2f(50, 50));
+	m_rect.setOrigin(25, 25);
 	m_rect.setPosition(sf::Vector2f(m_position.x, m_position.y));
 	if (!m_texture.loadFromFile("./Resources/Sprites/Spaceship_Enemy.png"))
 	{

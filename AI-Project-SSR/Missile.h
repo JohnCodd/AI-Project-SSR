@@ -11,5 +11,7 @@ protected:
 	float radius = 20;
 private:
 	sf::Texture texture;
+	int timeLeft;
+	int lifeTime = 1000;
 };
 

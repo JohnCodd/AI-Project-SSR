@@ -10,6 +10,12 @@ public:
 	~Nest() {};
 	void update(float dt, Vector2f target, Tile& targetTile);
 	void render(sf::RenderWindow& window);
+	struct removeUnactiveProjectiles
+	{
+		bool operator()(Projectile& p) {
+			return !p.getActive();
+		}
+	};
 private:
 	int misileLimit = 5;
 	float firingRadius = 500;

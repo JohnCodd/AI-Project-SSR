@@ -41,6 +41,8 @@ void Nest::update(float dt, Vector2f target, Tile & targetTile)
 	{
 		m.update(dt, target);
 	}
+	missiles.erase(std::remove_if(missiles.begin(), missiles.end(), removeUnactiveProjectiles()),
+		missiles.end());
 }
 
 void Nest::render(sf::RenderWindow& window)

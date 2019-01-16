@@ -44,31 +44,37 @@ Projectile::~Projectile()
 
 void Projectile::update(float dt)
 {
-	m_position += velocity * dt;
-	collider.setPosition(sf::Vector2f(m_position.x, m_position.y));
-	collider.setRotation(m_rotation);
-	rect.setPosition(sf::Vector2f(m_position.x, m_position.y));
-	rect.setRotation(m_rotation);
-	if (m_position.x < -(collider.getRadius()))
+	if (active)
 	{
-		m_position.x = mapWidth + (collider.getRadius());
-	}
-	else if (m_position.x - (collider.getRadius()) > mapWidth)
-	{
-		m_position.x = -(collider.getRadius());
-	}
-	else if (m_position.y < -(collider.getRadius()))
-	{
-		m_position.y = mapHeight + (collider.getRadius());
-	}
-	else if (m_position.y - (collider.getRadius()) > mapHeight)
-	{
-		m_position.y = -(collider.getRadius());
+		m_position += velocity * dt;
+		collider.setPosition(sf::Vector2f(m_position.x, m_position.y));
+		collider.setRotation(m_rotation);
+		rect.setPosition(sf::Vector2f(m_position.x, m_position.y));
+		rect.setRotation(m_rotation);
+		if (m_position.x < -(collider.getRadius()))
+		{
+			active = false;
+		}
+		else if (m_position.x - (collider.getRadius()) > mapWidth)
+		{
+			active = false;
+		}
+		else if (m_position.y < -(collider.getRadius()))
+		{
+			active = false;
+		}
+		else if (m_position.y - (collider.getRadius()) > mapHeight)
+		{
+			active = false;
+		}
 	}
 }
 
 void Projectile::render(sf::RenderWindow& window)
 {
-	window.draw(collider);
+	if (active)
+	{
+		window.draw(collider);
+	}
 	//window.draw(rect);
 }
