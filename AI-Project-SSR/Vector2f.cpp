@@ -83,9 +83,7 @@ std::ostream & operator<<(std::ostream & out, const Vector2f & v)
 
 float Vector2f::distance(Vector2f & v)
 {
-	Vector2f position(x, y);
-	auto minus = position - v;
-	return minus.magnitude();
+	return (*this - v).magnitude();
 }
 
 float Vector2f::magnitude()

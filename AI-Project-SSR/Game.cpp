@@ -75,6 +75,10 @@ void Game::processEvents()
 					updateBFS = true;
 				}
 			}
+			if (event.key.code == sf::Keyboard::Num9)
+			{
+				m_map.toggleDebug();
+			}
 		}
 	}
 }
@@ -105,7 +109,11 @@ void Game::update(double dt)
 	for (auto& p : projectiles)
 	{
 		p.update(dt, m_map);
-		
+		if (p.getPosition().distance(m_nest.getPosition()) < 50)
+		{
+			m_nest.damage();
+			p.setActive(false);
+		}
 	}
 	projectiles.erase(std::remove_if(projectiles.begin(), projectiles.end(), removeUnactiveProjectiles()),
 		projectiles.end());
@@ -117,7 +125,7 @@ void Game::update(double dt)
 	previousPPosition = tileLocation;
 	sf::Vector2f aiLocation = sf::Vector2f(static_cast<int>(ai_stay.getPosition().x / tileSize), static_cast<int>(ai_stay.getPosition().y / tileSize));
 	ai_stay.update(dt, m_player.getPosition(), *m_map.getTile(aiLocation));
-	m_nest.update(dt, m_player.getPosition(), *m_map.getTile(sf::Vector2f(20, 20)), m_map);
+	m_nest.update(dt, m_player, *m_map.getTile(sf::Vector2f(20, 20)), m_map);
 	mousePosition = sf::Mouse::getPosition(m_window);
 	if (m_player.getPosition().x < 200 && m_player.getPosition().y < 200)
 	{
@@ -169,5 +177,16 @@ void Game::render()
 	m_window.draw(nestIcon);
 	m_window.draw(playerIcon);
 	m_window.setView(player_camera);
+	// Draw the health bar
+	sf::RectangleShape healthOuter = sf::RectangleShape(sf::Vector2f(healthWidth, healthHeight));
+	healthOuter.setPosition(player_camera.getCenter().x - ((windowWidth / 2) - 5), player_camera.getCenter().y + ((windowHeight / 2) - (healthHeight + 5)));
+	healthOuter.setOutlineColor(sf::Color::Red);
+	healthOuter.setOutlineThickness(5);
+	healthOuter.setFillColor(sf::Color::Transparent);
+	sf::RectangleShape healthInner = sf::RectangleShape(sf::Vector2f(healthWidth * ((float)m_player.getHealth() / (float)m_player.getMaxHealth()), healthHeight));
+	healthInner.setPosition(player_camera.getCenter().x - ((windowWidth / 2) - 5), player_camera.getCenter().y + ((windowHeight / 2) - (healthHeight + 5)));
+	healthInner.setFillColor(sf::Color::Green);
+	m_window.draw(healthInner);
+	m_window.draw(healthOuter);
 	m_window.display();
 }

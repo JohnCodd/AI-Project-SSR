@@ -14,6 +14,7 @@ public:
 	void leftClick(sf::Event e);
 	void spacebar(sf::Vector2i v);
 	void onePress();
+	void toggleDebug() { if (debug) debug = false; else debug = true; }
 	bool checkCollision(sf::FloatRect r);
 	Tile* getTile(sf::Vector2f v);
 	struct VectorComparator
@@ -30,4 +31,5 @@ private:
 	bool renderCost = true;
 	Tile* startLocation;
 	Tile* goalLocation;
+	bool debug = false;
 };

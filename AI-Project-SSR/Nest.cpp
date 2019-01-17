@@ -26,34 +26,59 @@ Nest::Nest(Vector2f position, double mapX, double mapY) : AI(position, "Stay", m
 	scanArea.setOutlineColor(sf::Color::Red);
 	scanArea.setOutlineThickness(4);
 	scanArea.setFillColor(sf::Color::Transparent);
+	health = maxHealth;
 }
 
-void Nest::update(float dt, Vector2f target, Tile & targetTile, Map& map)
+void Nest::update(float dt, Player& player, Tile & targetTile, Map& map)
 {
-	m_position = Vector2f(targetTile.getCenter().x, targetTile.getCenter().y);
-	m_rect.setPosition(targetTile.getCenter());
-	scanArea.setPosition(targetTile.getCenter());
-	if (target.distance(m_position) < firingRadius && missiles.size() < misileLimit && shotCooldown > maxCooldown)
+	Vector2f target = player.getPosition();
+	if (active)
 	{
-		shotCooldown = 0;
-		Missile m = std::move(Missile(m_position, 0.1f, m_rotation, mapWidth, mapHeight));
-		missiles.push_back(m);
+		m_position = Vector2f(targetTile.getCenter().x, targetTile.getCenter().y);
+		m_rect.setPosition(targetTile.getCenter());
+		scanArea.setPosition(targetTile.getCenter());
+		if (target.distance(m_position) < firingRadius && missiles.size() < misileLimit && shotCooldown > maxCooldown)
+		{
+			shotCooldown = 0;
+			Missile m = std::move(Missile(m_position, 0.1f, m_rotation, mapWidth, mapHeight));
+			missiles.push_back(m);
+		}
 	}
-	shotCooldown++;
 	for (auto& m : missiles)
 	{
 		m.update(dt, target, map);
+		if (player.getRect().getGlobalBounds().intersects(sf::FloatRect(m.getPosition().x, m.getPosition().y, 2, 2)))
+		{
+			m.setActive(false);
+			player.damage(3);
+		}
 	}
 	missiles.erase(std::remove_if(missiles.begin(), missiles.end(), removeUnactiveProjectiles()),
 		missiles.end());
+	if (missiles.size() == 0)
+	{
+		shotCooldown++;
+	}
 }
 
 void Nest::render(sf::RenderWindow& window)
 {
-	window.draw(m_rect);
-	window.draw(scanArea);
+	if (active)
+	{
+		window.draw(m_rect);
+		window.draw(scanArea);
+	}
 	for (auto& m : missiles)
 	{
 		m.render(window);
+	}
+}
+
+void Nest::damage()
+{
+	health--;
+	if (health <= 0)
+	{
+		active = false;
 	}
 }

@@ -16,10 +16,14 @@ public:
 	void speedDown();
 	void rotateLeft();
 	void rotateRight();
+	void damage(int damage);
 	Vector2f getPosition();
 	Vector2f getVelocity();
 	int random(int min, int max);
+	int getHealth() { return health; }
+	int getMaxHealth() { return maxHealth; }
 	double static const DEG_TO_RAD;
+	sf::RectangleShape getRect();
 private:
 	Vector2f m_position;
 	Vector2f m_velocity;
@@ -30,6 +34,7 @@ private:
 	float maxSpeed;
 	double mapWidth;
 	double mapHeight;
-	int shotCooldown;
+	int shotCooldown, health;
+	int maxHealth = 10;
 	int maxCooldown = 100;
 };

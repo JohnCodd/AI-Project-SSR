@@ -9,6 +9,7 @@ public:
 	Projectile(Vector2f position, float speed, float rotation, float mWidth, float mHeight);
 	~Projectile();
 	void update(float dt, Map& m);
+	void setActive(bool b) { active = b; }
 	bool getActive() { return active; }
 	//bool operator == (const Projectile& s) const { return getActive == s.getActive; }
 	//bool operator != (const Projectile& s) const { return !operator==(s); }

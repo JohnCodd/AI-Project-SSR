@@ -16,17 +16,17 @@ Tile::Tile(sf::Vector2f position, sf::Font& font, int s)
 	center = sf::Vector2f(position.x + size / 2, position.y + size / 2);
 }
 
-void Tile::render(sf::RenderWindow * window, bool rendercost)
+void Tile::render(sf::RenderWindow * window, bool rendercost, bool debug)
 {
-	if (start == true)
+	if (start == true && debug)
 	{
 		m_rect.setFillColor(sf::Color::Green);
 	}
-	else if (goal == true)
+	else if (goal == true && debug)
 	{
 		m_rect.setFillColor(sf::Color::Red);
 	}
-	else if (path == true)
+	else if (path == true && debug)
 	{
 		m_rect.setFillColor(sf::Color::Yellow);
 	}
@@ -39,17 +39,20 @@ void Tile::render(sf::RenderWindow * window, bool rendercost)
 		m_rect.setFillColor(sf::Color::Transparent);
 	}
 	window->draw(m_rect);
-	if (rendercost)
+	if (rendercost && debug)
 	{
 		window->draw(cost);
 	}
-	sf::Vector2f zero = sf::Vector2f(0, 0);
-	if (center != zero && lineEnd != zero)
+	if (debug)
 	{
-		sf::VertexArray line(sf::LinesStrip, 2);
-		line[0].position = center;
-		line[1].position = lineEnd;
-		window->draw(line);
+		sf::Vector2f zero = sf::Vector2f(0, 0);
+		if (center != zero && lineEnd != zero)
+		{
+			sf::VertexArray line(sf::LinesStrip, 2);
+			line[0].position = center;
+			line[1].position = lineEnd;
+			window->draw(line);
+		}
 	}
 }
 

@@ -27,6 +27,7 @@ Player::Player(double mWidth, double mHeight)
 	mapWidth = mWidth;
 	mapHeight = mHeight;
 	shotCooldown = maxCooldown;
+	health = maxHealth;
 }
 
 Player::~Player()
@@ -116,6 +117,11 @@ int Player::random(int min, int max)
 	return dis(gen);
 }
 
+sf::RectangleShape Player::getRect()
+{
+	return m_rect;
+}
+
 void Player::speedUp()
 {
 	if (m_speed <= maxSpeed)
@@ -135,6 +141,15 @@ void Player::speedDown()
 void Player::rotateRight()
 {
 	rotation++;
+}
+
+void Player::damage(int damage)
+{
+	health -= damage;
+	if (health < 0)
+	{
+		health = 0;
+	}
 }
 
 Vector2f Player::getPosition()

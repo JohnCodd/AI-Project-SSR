@@ -30,6 +30,8 @@ protected:
 	double const mapWidth = 3000;
 	double const mapHeight = 3000;
 	float const minimapSize = 150;
+	float healthWidth = 200;
+	float healthHeight = 40;
 	int const tileSize = 100;
 	sf::RenderWindow m_window;
 	sf::View player_camera, minimap;

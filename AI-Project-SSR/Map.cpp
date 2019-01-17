@@ -244,7 +244,7 @@ void Map::render(sf::RenderWindow & window)
 {
 	for (auto const& a : tiles)
 	{
-		tiles[a.first].render(&window, renderCost);
+		tiles[a.first].render(&window, renderCost, debug);
 	}
 }
 

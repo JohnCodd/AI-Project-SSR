@@ -16,7 +16,7 @@ public:
 	Tile() {};
 	Tile(sf::Vector2f position, sf::Font& font, int s);
 	~Tile() {};
-	void render(sf::RenderWindow * window, bool rendercost);
+	void render(sf::RenderWindow * window, bool rendercost, bool debug);
 	void setCost(int cost);
 	void setPrevious(Tile &previous);
 	void setGoal(bool b);
