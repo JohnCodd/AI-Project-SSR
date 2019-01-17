@@ -28,7 +28,7 @@ Nest::Nest(Vector2f position, double mapX, double mapY) : AI(position, "Stay", m
 	scanArea.setFillColor(sf::Color::Transparent);
 }
 
-void Nest::update(float dt, Vector2f target, Tile & targetTile)
+void Nest::update(float dt, Vector2f target, Tile & targetTile, Map& map)
 {
 	m_position = Vector2f(targetTile.getCenter().x, targetTile.getCenter().y);
 	m_rect.setPosition(targetTile.getCenter());
@@ -42,7 +42,7 @@ void Nest::update(float dt, Vector2f target, Tile & targetTile)
 	shotCooldown++;
 	for (auto& m : missiles)
 	{
-		m.update(dt, target);
+		m.update(dt, target, map);
 	}
 	missiles.erase(std::remove_if(missiles.begin(), missiles.end(), removeUnactiveProjectiles()),
 		missiles.end());

@@ -31,5 +31,5 @@ private:
 	double mapWidth;
 	double mapHeight;
 	int shotCooldown;
-	int maxCooldown = 20;
+	int maxCooldown = 100;
 };

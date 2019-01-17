@@ -26,6 +26,7 @@ Player::Player(double mWidth, double mHeight)
 	m_velocity = Vector2f(x, y);
 	mapWidth = mWidth;
 	mapHeight = mHeight;
+	shotCooldown = maxCooldown;
 }
 
 Player::~Player()

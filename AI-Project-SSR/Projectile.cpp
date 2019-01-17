@@ -42,7 +42,7 @@ Projectile::~Projectile()
 }
 
 
-void Projectile::update(float dt)
+void Projectile::update(float dt, Map& m)
 {
 	if (active)
 	{
@@ -64,6 +64,11 @@ void Projectile::update(float dt)
 			active = false;
 		}
 		else if (m_position.y - (collider.getRadius()) > mapHeight)
+		{
+			active = false;
+		}
+		sf::Vector2f tileLocation = sf::Vector2f(floor(m_position.x / 100), floor(m_position.y / 100));
+		if (m.getTile(tileLocation)->getWall())
 		{
 			active = false;
 		}

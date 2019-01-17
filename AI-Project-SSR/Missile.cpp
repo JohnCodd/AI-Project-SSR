@@ -25,7 +25,7 @@ Missile::~Missile()
 {
 }
 
-void Missile::update(float dt, Vector2f target)
+void Missile::update(float dt, Vector2f target, Map& m)
 {
 	if (active)
 	{
@@ -40,6 +40,6 @@ void Missile::update(float dt, Vector2f target)
 		{
 			active = false;
 		}
-		Projectile::update(dt);
+		Projectile::update(dt, m);
 	}
 }

@@ -2,16 +2,18 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Vector2f.h"
+#include "Map.h"
 class Projectile
 {
 public:
 	Projectile(Vector2f position, float speed, float rotation, float mWidth, float mHeight);
 	~Projectile();
-	void update(float dt);
+	void update(float dt, Map& m);
 	bool getActive() { return active; }
 	//bool operator == (const Projectile& s) const { return getActive == s.getActive; }
 	//bool operator != (const Projectile& s) const { return !operator==(s); }
 	virtual void render(sf::RenderWindow& window);
+	Vector2f getPosition() { return m_position; }
 protected:
 	double static const DEG_TO_RAD;
 	double static const RAD_TO_DEG;

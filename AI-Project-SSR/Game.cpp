@@ -104,7 +104,7 @@ void Game::update(double dt)
 	m_player.update(dt, m_map, projectiles);
 	for (auto& p : projectiles)
 	{
-		p.update(dt);
+		p.update(dt, m_map);
 		
 	}
 	projectiles.erase(std::remove_if(projectiles.begin(), projectiles.end(), removeUnactiveProjectiles()),
@@ -117,7 +117,7 @@ void Game::update(double dt)
 	previousPPosition = tileLocation;
 	sf::Vector2f aiLocation = sf::Vector2f(static_cast<int>(ai_stay.getPosition().x / tileSize), static_cast<int>(ai_stay.getPosition().y / tileSize));
 	ai_stay.update(dt, m_player.getPosition(), *m_map.getTile(aiLocation));
-	m_nest.update(dt, m_player.getPosition(), *m_map.getTile(sf::Vector2f(20, 20)));
+	m_nest.update(dt, m_player.getPosition(), *m_map.getTile(sf::Vector2f(20, 20)), m_map);
 	mousePosition = sf::Mouse::getPosition(m_window);
 	if (m_player.getPosition().x < 200 && m_player.getPosition().y < 200)
 	{
