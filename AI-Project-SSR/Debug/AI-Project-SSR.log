@@ -24,40 +24,45 @@ c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.c
           [
               T=float
           ]
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(38): warning C4244: '-=': conversion from 'double' to 'sf::Int32', possible loss of data
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(90): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(94): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(98): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(102): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(111): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(120): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(126): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(44): warning C4244: '-=': conversion from 'double' to 'sf::Int32', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(96): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(100): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(104): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(108): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(117): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(129): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(137): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(127): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(128): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(132): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(138): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(142): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(136): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(143): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(148): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(143): warning C4244: 'argument': conversion from 'const double' to 'T', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(152): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(173): warning C4244: 'argument': conversion from 'const double' to 'T', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(159): warning C4244: 'argument': conversion from 'const double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(182): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(187): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(192): warning C4244: 'argument': conversion from 'const double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(211): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\c00208049\documents\ai programming\ai-project-ssr\ai-project-ssr\game.cpp(216): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   AI-Project-SSR.vcxproj -> C:\Users\c00208049\Documents\AI Programming\AI-Project-SSR\Debug\AI-Project-SSR.exe

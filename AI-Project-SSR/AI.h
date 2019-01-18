@@ -37,7 +37,7 @@ protected:
 	Vector2f m_position;
 	Vector2f m_velocity;
 	sf::RectangleShape m_rect;
-	sf::Texture m_texture;
+	std::shared_ptr<sf::Texture> m_texture;
 	float m_rotation;
 	float m_speed;
 	float maxSpeed;

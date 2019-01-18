@@ -27,8 +27,8 @@ protected:
 	void clampCamera();
 	double windowWidth = 1400;
 	double windowHeight = 800;
-	double const mapWidth = 3000;
-	double const mapHeight = 3000;
+	double const mapWidth = 4000;
+	double const mapHeight = 4000;
 	float const minimapSize = 150;
 	float healthWidth = 200;
 	float healthHeight = 40;
@@ -39,9 +39,9 @@ private:
 	bool updateBFS = true;
 	Map m_map;
 	Player m_player;
-	AI ai_stay;
-	Nest m_nest;
 	Vector2f previousPPosition;
 	sf::Vector2i mousePosition;
 	std::list<Projectile> projectiles;
+	std::list<AI> predators;
+	std::list<Nest> nests;
 };

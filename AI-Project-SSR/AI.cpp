@@ -10,12 +10,17 @@ AI::AI(double mWidth, double mHeight)
 	m_rect = sf::RectangleShape(sf::Vector2f(100, 100));
 	m_rect.setOrigin(50, 50);
 	m_rect.setPosition(sf::Vector2f(m_position.x, m_position.y));
-	if (!m_texture.loadFromFile("./Resources/Sprites/Spaceship_Enemy.png"))
+	auto texture = sf::Texture();
+	if (!texture.loadFromFile("./Resources/Sprites/Spaceship_Enemy.png"))
 	{
 		std::string s("Error loading texture");
 		throw std::exception(s.c_str());
 	}
-	m_rect.setTexture(&m_texture);
+	else
+	{
+		m_texture = std::make_shared<sf::Texture>(std::move(texture));
+	}
+	m_rect.setTexture(m_texture.get(), true);
 	m_rect.setRotation(m_rotation);
 	m_speed = 7;
 	maxSpeed = 50;
@@ -35,12 +40,17 @@ AI::AI(Vector2f position, std::string state, double mWidth, double mHeight)
 	m_rect = sf::RectangleShape(sf::Vector2f(50, 50));
 	m_rect.setOrigin(25, 25);
 	m_rect.setPosition(sf::Vector2f(m_position.x, m_position.y));
-	if (!m_texture.loadFromFile("./Resources/Sprites/Spaceship_Enemy.png"))
+	auto texture = sf::Texture();
+	if (!texture.loadFromFile("./Resources/Sprites/Spaceship_Enemy.png"))
 	{
 		std::string s("Error loading texture");
 		throw std::exception(s.c_str());
 	}
-	m_rect.setTexture(&m_texture);
+	else
+	{
+		m_texture = std::make_shared<sf::Texture>(std::move(texture));
+	}
+	m_rect.setTexture(m_texture.get(), true);
 	m_rect.setRotation(m_rotation);
 	maxSpeed = 50;
 	m_speed = maxSpeed;

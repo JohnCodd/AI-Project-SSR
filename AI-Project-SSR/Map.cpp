@@ -70,6 +70,8 @@ Map::Map(int sizeX, int sizeY, int tileSize)
 	tiles[sf::Vector2f(12, 14)].setWall(true);
 	tiles[sf::Vector2f(13, 14)].setWall(true);
 	tiles[sf::Vector2f(14, 14)].setWall(true);
+	tiles[sf::Vector2f(14, 12)].setWall(true);
+	tiles[sf::Vector2f(13, 12)].setWall(true);
 	//startLocation = &tiles[sf::Vector2f(18, 5)];
 	//goalLocation = &tiles[sf::Vector2f(6, 42)];
 	//BFS(*startLocation, *goalLocation);
